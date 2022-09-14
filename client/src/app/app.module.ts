@@ -1,3 +1,4 @@
+import { gameReducer } from './store/game.reducer';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,6 +9,7 @@ import { GameStartNinthComponent } from './game-start-ninth/game-start-ninth.com
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { ResultsComponent } from './results/results.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,14 @@ import { NavbarComponent } from './navbar/navbar.component';
     GameStartNinthComponent,
     ScoreboardComponent,
     ResultsComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({ game: gameReducer }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
