@@ -7,6 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { GameStartNinthComponent } from './game-start-ninth/game-start-ninth.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { ResultsComponent } from './results/results.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ResultsComponent } from './results/results.component';
     HomePageComponent,
     GameStartNinthComponent,
     ScoreboardComponent,
-    ResultsComponent
+    ResultsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
