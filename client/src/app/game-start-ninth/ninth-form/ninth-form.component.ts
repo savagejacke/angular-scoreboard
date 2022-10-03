@@ -18,17 +18,27 @@ export class NinthFormComponent implements OnInit {
   player$: Observable<Player>;
 
   constructor(private store: Store<GameState>) {
-    const selector = this.playerNumber === 1 ? selectPlayer1 : selectPlayer2;
-    this.player$ = this.store.select(selector);
+    // if (this.playerNumber === 1) {
+    //   console.log(this.playerNumber);
+    //   this.player$ = this.store.select(selectPlayer1);
+    // } else {
+    //   this.player$ = this.store.select(selectPlayer2);
+    //   console.log(this.playerNumber);
+    // }
   }
 
   ngOnInit(): void {
-    // this.store.select(selector).subscribe({
-    //   next: (p) => {
-    //     this.player = p;
-    //     console.log(this.player.name);
-    //   },
-    // });
+    if (this.playerNumber === 1) {
+      console.log(this.playerNumber);
+      this.store
+        .select(selectPlayer1)
+        .subscribe((player1) => (this.player = player1));
+    } else {
+      this.store
+        .select(selectPlayer2)
+        .subscribe((player2) => (this.player = player2));
+      console.log(this.playerNumber);
+    }
   }
 
   onClick() {
