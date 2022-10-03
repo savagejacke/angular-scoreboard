@@ -10,6 +10,7 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { ResultsComponent } from './results/results.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StoreModule } from '@ngrx/store';
+import { NinthFormComponent } from './game-start-ninth/ninth-form/ninth-form.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { StoreModule } from '@ngrx/store';
     ScoreboardComponent,
     ResultsComponent,
     NavbarComponent,
+    NinthFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,9 @@
+import { GameState } from 'src/app/store/game.state';
 import { Player } from './../models/player';
-import { createFeatureSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-export const selectPlayer1 = createFeatureSelector<Player>('player1');
+export const selectGame = createFeatureSelector<GameState>('game');
 
-export const selectPlayer2 = createFeatureSelector<Player>('player2');
+export const selectPlayer1 = createSelector(selectGame, (game) => game.player1);
+
+export const selectPlayer2 = createSelector(selectGame, (game) => game.player2);
