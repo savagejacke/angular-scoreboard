@@ -1,4 +1,95 @@
-<p>ninth-form works! - {{ playerNumber }}</p>
-<h1>{{ player.name }}</h1>
-<h1>{{ player.army }}</h1>
-<button (click)="onClick()" class="btn-blue">Click</button>
+<div class="text-center my-4">
+  <!-- Name Form -->
+  <div *ngIf="!named">
+    <label for="NameForm" class="font-semibold">Enter your name:</label><br />
+    <input
+      type="text"
+      [formControl]="enteredName"
+      class="border-gray-400 bg-gray-100 mt-2 rounded-md focus:bg-white"
+      id="NameForm"
+    />
+    <button
+      (click)="onNameFormSubmit()"
+      [disabled]="!enteredName.value"
+      class="text-blue-500 border-blue-500 border-solid border btn-small ml-1 hover:bg-blue-500 hover:text-white"
+    >
+      Submit
+    </button>
+  </div>
+
+  <!-- Normal game start form -->
+  <div *ngIf="named">
+    <h1 class="mb-3">{{ player.name }}</h1>
+    <h2 class="mb-1">Select army:</h2>
+    <select
+      class="bg-gray-100 text-center w-64 border border-solid mb-2"
+      (change)="onArmyChange($event)"
+    >
+      <option [value]="">--</option>
+      <option *ngFor="let army of armies" [value]="army">
+        {{ army }}
+      </option>
+    </select>
+    <h2 class="mt-2 mb-1">Select secondaries:</h2>
+
+    <!-- Purge the Enemy selector -->
+    <div class="mb-1">
+      <label>Purge the Enemy</label>
+      <select
+        (change)="onSecondarySelect($event)"
+        class="bg-gray-100 text-center border border-solid ml-1"
+      >
+        <option [value]="undefined">--</option>
+        <option *ngFor="let sec of pte" [value]="sec">{{ sec.title }}</option>
+      </select>
+    </div>
+
+    <!-- No Mercy, No Respite selector -->
+    <div class="mb-1">
+      <label>No Mercy, No Respite</label>
+      <select
+        (change)="onSecondarySelect($event)"
+        class="bg-gray-100 text-center border border-solid ml-1"
+      >
+        <option [value]="undefined">--</option>
+        <option *ngFor="let sec of nmnr" [value]="sec">{{ sec.title }}</option>
+      </select>
+    </div>
+
+    <!-- Warpcarft selector -->
+    <div class="mb-1">
+      <label>Warpcraft</label>
+      <select
+        (change)="onSecondarySelect($event)"
+        class="bg-gray-100 text-center border border-solid ml-1"
+      >
+        <option [value]="undefined">--</option>
+        <option *ngFor="let sec of wc" [value]="sec">{{ sec.title }}</option>
+      </select>
+    </div>
+
+    <!-- Battlefield Supremacy selector -->
+    <div class="mb-1">
+      <label>Battlefield Supremacy</label>
+      <select
+        (change)="onSecondarySelect($event)"
+        class="bg-gray-100 text-center border border-solid ml-1"
+      >
+        <option [value]="undefined">--</option>
+        <option *ngFor="let sec of bs" [value]="sec">{{ sec.title }}</option>
+      </select>
+    </div>
+
+    <!-- Shadow Operations selector -->
+    <div class="mb-1">
+      <label>Shadow Operations</label>
+      <select
+        (change)="onSecondarySelect($event)"
+        class="bg-gray-100 text-center border border-solid ml-1"
+      >
+        <option [value]="undefined">--</option>
+        <option *ngFor="let sec of so" [value]="sec">{{ sec.title }}</option>
+      </select>
+    </div>
+  </div>
+</div>

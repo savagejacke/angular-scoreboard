@@ -1,6 +1,7 @@
 import { gameReducer } from './store/game.reducer';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { NinthFormComponent } from './game-start-ninth/ninth-form/ninth-form.com
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({ game: gameReducer }),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

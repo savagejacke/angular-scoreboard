@@ -6,3 +6,5 @@ module.exports = {
   },
   plugins: [],
 };
+
+// If Tailwind is not working, run ng s from ~/angular-scoreboard/client

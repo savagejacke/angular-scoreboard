@@ -2,3 +2,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+  @apply px-4 py-2 font-bold rounded;
+}
+
+.btn-small {
+  @apply px-2 rounded font-semibold;
+}
+
+.btn-blue {
+  @apply btn bg-blue-500 hover:bg-blue-700 text-white;
+}
+
+.btn-green {
+  @apply btn bg-green-500 hover:bg-green-600 text-white;
+}
+
+h1 {
+  @apply text-4xl font-bold;
+}
+
+h2 {
+  @apply text-2xl font-bold;
+}
