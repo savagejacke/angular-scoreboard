@@ -5,6 +5,7 @@ import {
   replaceSecondary,
   updateSecondaryScore,
   updateScore,
+  removeSecondary,
 } from './game.actions';
 import { createReducer, on } from '@ngrx/store';
 import { GameState } from './game.state';
@@ -65,6 +66,26 @@ export const gameReducer = createReducer(
       if (i === idx) return secondary;
       return sec;
     });
+    if (p1) {
+      return {
+        player1: {
+          ...state.player1,
+          secondaries: newSecondaries,
+        },
+        player2: state.player2,
+      };
+    }
+    return {
+      player1: state.player1,
+      player2: { ...state.player2, secondaries: newSecondaries },
+    };
+  }),
+  on(removeSecondary, (state, { secType, player }) => {
+    const p1 = player === 1;
+    const secondaries = p1
+      ? state.player1.secondaries
+      : state.player2.secondaries;
+    const newSecondaries = secondaries.filter((sec) => sec.type !== secType);
     if (p1) {
       return {
         player1: {

@@ -1,4 +1,4 @@
-import { Secondary } from './../models/secondary';
+import { Secondary, SecondaryType } from './../models/secondary';
 import { createAction, props } from '@ngrx/store';
 
 export const updatePlayerName = createAction(
@@ -19,6 +19,11 @@ export const addSecondary = createAction(
 export const replaceSecondary = createAction(
   '[player.secondaries] Replace Secondary',
   props<{ secondary: Secondary; idx: number; player: number }>()
+);
+
+export const removeSecondary = createAction(
+  '[player.secondaries] Remove Secondary',
+  props<{ secType: SecondaryType; player: number }>()
 );
 
 export const updateSecondaryScore = createAction(

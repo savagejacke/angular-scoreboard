@@ -1,9 +1,10 @@
 import { SECONDARIES } from './../../data/Secondaries';
-import { Secondary } from './../../models/secondary';
+import { Secondary, SecondaryType } from './../../models/secondary';
 import {
   updateArmy,
   addSecondary,
   replaceSecondary,
+  removeSecondary,
 } from './../../store/game.actions';
 import { Store } from '@ngrx/store';
 import { Player } from './../../models/player';
@@ -69,10 +70,16 @@ export class NinthFormComponent implements OnInit {
     this.updateSecondaryArrays();
   }
 
-  onSecondarySelect(e: Event) {
+  onSecondarySelect(e: Event, type: SecondaryType) {
     const title = (e.target as HTMLSelectElement).value;
     const secondary = SECONDARIES.find((sec) => sec.title === title);
-    if (!secondary) return;
+    if (!secondary) {
+      this.store.dispatch(
+        removeSecondary({ secType: type, player: this.playerNumber })
+      );
+      this.updateSecondaryDisable();
+      return;
+    }
     const idx = this.player.secondaries.findIndex(
       (sec) => sec.type === secondary.type
     );
@@ -81,12 +88,10 @@ export class NinthFormComponent implements OnInit {
       this.store.dispatch(
         addSecondary({ secondary, player: this.playerNumber })
       );
-      console.log(secondary.title);
     } else {
       this.store.dispatch(
         replaceSecondary({ secondary, idx, player: this.playerNumber })
       );
-      console.log('2');
     }
 
     this.updateSecondaryDisable();

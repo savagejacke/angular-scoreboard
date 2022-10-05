@@ -6,9 +6,9 @@ export interface Secondary {
   rules?: string;
 }
 
-type SecondaryType =
-  | "Purge The Enemy"
-  | "No Mercy, No Respite"
-  | "Warpcraft"
-  | "Battlefield Supremacy"
-  | "Shadow Operations";
+export type SecondaryType =
+  | 'Purge The Enemy'
+  | 'No Mercy, No Respite'
+  | 'Warpcraft'
+  | 'Battlefield Supremacy'
+  | 'Shadow Operations';
