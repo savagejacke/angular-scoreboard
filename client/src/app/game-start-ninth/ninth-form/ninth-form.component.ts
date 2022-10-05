@@ -8,7 +8,7 @@ import {
 } from './../../store/game.actions';
 import { Store } from '@ngrx/store';
 import { Player } from './../../models/player';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GameState } from 'src/app/store/game.state';
 import { selectPlayer1, selectPlayer2 } from 'src/app/store/game.selectors';
 import { updatePlayerName } from 'src/app/store/game.actions';
@@ -22,6 +22,7 @@ import { ARMIES } from 'src/app/data/armies';
 })
 export class NinthFormComponent implements OnInit {
   @Input() playerNumber: number;
+  @Output() playerNamed = new EventEmitter<boolean>();
   player: Player;
   named = false;
   enteredName = new FormControl('');
@@ -50,12 +51,12 @@ export class NinthFormComponent implements OnInit {
         .select(selectPlayer2)
         .subscribe((player2) => (this.player = player2));
     }
-    if (this.player.name) this.named = true;
+    this.updateNamed(this.player.name ? true : false);
     this.updateSecondaryArrays();
   }
 
   onNameFormSubmit() {
-    this.named = true;
+    this.updateNamed(true);
     this.store.dispatch(
       updatePlayerName({
         name: this.enteredName.value || '',
@@ -155,5 +156,10 @@ export class NinthFormComponent implements OnInit {
     this.disableSo = !this.player.secondaries.some(
       (sec) => sec.type === 'Shadow Operations'
     );
+  }
+
+  private updateNamed(n: boolean) {
+    this.named = n;
+    this.playerNamed.emit(n);
   }
 }

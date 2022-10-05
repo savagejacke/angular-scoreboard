@@ -1,0 +1,7 @@
+<button class="opacity-75 btn-green" *ngIf="!p1Ready || !p2Ready" disabled>
+  Finish your selections
+</button>
+
+<button class="btn-blue" *ngIf="p1Ready && p2Ready" routerLink="scoreboard">
+  Start game
+</button>

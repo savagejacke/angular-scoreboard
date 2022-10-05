@@ -1,2 +1,14 @@
-<app-ninth-form [playerNumber]="1"></app-ninth-form>
-<app-ninth-form [playerNumber]="2"></app-ninth-form>
+<app-ninth-form
+  [playerNumber]="1"
+  (playerNamed)="onPlayerNamed($event, 1)"
+></app-ninth-form>
+<app-ninth-form
+  [playerNumber]="2"
+  (playerNamed)="onPlayerNamed($event, 2)"
+></app-ninth-form>
+
+<div class="mt-6 text-center">
+  <app-game-start-button
+    *ngIf="player1Named && player2Named"
+  ></app-game-start-button>
+</div>

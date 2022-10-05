@@ -12,6 +12,7 @@ import { ResultsComponent } from './results/results.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StoreModule } from '@ngrx/store';
 import { NinthFormComponent } from './game-start-ninth/ninth-form/ninth-form.component';
+import { GameStartButtonComponent } from './game-start-ninth/game-start-button/game-start-button.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NinthFormComponent } from './game-start-ninth/ninth-form/ninth-form.com
     ResultsComponent,
     NavbarComponent,
     NinthFormComponent,
+    GameStartButtonComponent,
   ],
   imports: [
     BrowserModule,

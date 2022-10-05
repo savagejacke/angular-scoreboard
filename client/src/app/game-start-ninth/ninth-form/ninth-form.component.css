@@ -1,1 +1,3 @@
-
+.dropdown {
+  @apply ml-1 text-center bg-white border border-solid disabled:bg-gray-100;
+}
