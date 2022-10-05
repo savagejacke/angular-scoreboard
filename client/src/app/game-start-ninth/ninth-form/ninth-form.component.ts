@@ -30,6 +30,11 @@ export class NinthFormComponent implements OnInit {
   wc: Secondary[];
   bs: Secondary[];
   so: Secondary[];
+  disablePte = false;
+  disableNmnr = false;
+  disableWc = false;
+  disableBs = false;
+  disableSo = false;
 
   constructor(private store: Store<GameState>) {}
 
@@ -64,8 +69,9 @@ export class NinthFormComponent implements OnInit {
     this.updateSecondaryArrays();
   }
 
-  onSecondarySelect(e: any) {
-    const secondary = e.target.value;
+  onSecondarySelect(e: Event) {
+    const title = (e.target as HTMLSelectElement).value;
+    const secondary = SECONDARIES.find((sec) => sec.title === title);
     if (!secondary) return;
     const idx = this.player.secondaries.findIndex(
       (sec) => sec.type === secondary.type
@@ -75,11 +81,15 @@ export class NinthFormComponent implements OnInit {
       this.store.dispatch(
         addSecondary({ secondary, player: this.playerNumber })
       );
+      console.log(secondary.title);
     } else {
       this.store.dispatch(
         replaceSecondary({ secondary, idx, player: this.playerNumber })
       );
+      console.log('2');
     }
+
+    this.updateSecondaryDisable();
   }
 
   private updateSecondaryArrays() {
@@ -112,6 +122,33 @@ export class NinthFormComponent implements OnInit {
         sec.type === 'Shadow Operations' &&
         (sec.armyRequirement === 'None' ||
           sec.armyRequirement === this.player.army)
+    );
+  }
+
+  private updateSecondaryDisable() {
+    if (this.player.secondaries.length < 3) {
+      this.disablePte = false;
+      this.disableNmnr = false;
+      this.disableWc = false;
+      this.disableBs = false;
+      this.disableSo = false;
+      return;
+    }
+
+    this.disablePte = !this.player.secondaries.some(
+      (sec) => sec.type === 'Purge The Enemy'
+    );
+    this.disableNmnr = !this.player.secondaries.some(
+      (sec) => sec.type === 'No Mercy, No Respite'
+    );
+    this.disableWc = !this.player.secondaries.some(
+      (sec) => sec.type === 'Warpcraft'
+    );
+    this.disableBs = !this.player.secondaries.some(
+      (sec) => sec.type === 'Battlefield Supremacy'
+    );
+    this.disableSo = !this.player.secondaries.some(
+      (sec) => sec.type === 'Shadow Operations'
     );
   }
 }
