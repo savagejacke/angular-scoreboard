@@ -8,19 +8,27 @@ import {
 } from './../../store/game.actions';
 import { Store } from '@ngrx/store';
 import { Player } from './../../models/player';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { GameState } from 'src/app/store/game.state';
 import { selectPlayer1, selectPlayer2 } from 'src/app/store/game.selectors';
 import { updatePlayerName } from 'src/app/store/game.actions';
 import { FormControl } from '@angular/forms';
 import { ARMIES } from 'src/app/data/armies';
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-ninth-form',
   templateUrl: './ninth-form.component.html',
   styleUrls: ['./ninth-form.component.css'],
 })
-export class NinthFormComponent implements OnInit {
+export class NinthFormComponent implements OnInit, OnDestroy {
   @Input() playerNumber: number;
   @Output() playerNamed = new EventEmitter<boolean>();
   player: Player;
@@ -37,22 +45,31 @@ export class NinthFormComponent implements OnInit {
   disableWc = false;
   disableBs = false;
   disableSo = false;
+  private subs = new SubSink();
 
   constructor(private store: Store<GameState>) {}
 
   ngOnInit(): void {
     // Subscribe to player 1 or 2
     if (this.playerNumber === 1) {
-      this.store
-        .select(selectPlayer1)
-        .subscribe((player1) => (this.player = player1));
+      this.subs.add(
+        this.store
+          .select(selectPlayer1)
+          .subscribe((player1) => (this.player = player1))
+      );
     } else {
-      this.store
-        .select(selectPlayer2)
-        .subscribe((player2) => (this.player = player2));
+      this.subs.add(
+        this.store
+          .select(selectPlayer2)
+          .subscribe((player2) => (this.player = player2))
+      );
     }
     this.updateNamed(this.player.name ? true : false);
     this.updateSecondaryArrays();
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 
   onNameFormSubmit() {
