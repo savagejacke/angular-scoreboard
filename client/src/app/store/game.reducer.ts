@@ -53,7 +53,7 @@ export const gameReducer = createReducer(
       player1: state.player1,
       player2: {
         ...state.player2,
-        secondaries: [...state.player1.secondaries, secondary],
+        secondaries: [...state.player2.secondaries, secondary],
       },
     };
   }),
