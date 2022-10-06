@@ -1,4 +1,14 @@
+import {
+  updatePrimaryScore,
+  updateSecondaryScore,
+} from './../../store/game.actions';
+import { selectPlayer1, selectPlayer2 } from './../../store/game.selectors';
+import { SubSink } from 'subsink';
+import { Store } from '@ngrx/store';
+import { FormControl } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
+import { GameState } from 'src/app/store/game.state';
+import { Player } from 'src/app/models/player';
 
 @Component({
   selector: 'app-scoreboard-grid',
@@ -6,9 +16,81 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./scoreboard-grid.component.css'],
 })
 export class ScoreboardGridComponent implements OnInit {
-  @Input() player: number;
+  @Input() playerNumber: number;
+  player: Player;
+  pScores = [
+    new FormControl(0),
+    new FormControl(0),
+    new FormControl(0),
+    new FormControl(0),
+  ];
+  apScores = [
+    new FormControl(0),
+    new FormControl(0),
+    new FormControl(0),
+    new FormControl(0),
+  ];
+  s1Scores = [
+    new FormControl(0),
+    new FormControl(0),
+    new FormControl(0),
+    new FormControl(0),
+    new FormControl(0),
+  ];
+  s2Scores = [
+    new FormControl(0),
+    new FormControl(0),
+    new FormControl(0),
+    new FormControl(0),
+    new FormControl(0),
+  ];
+  s3Scores = [
+    new FormControl(0),
+    new FormControl(0),
+    new FormControl(0),
+    new FormControl(0),
+    new FormControl(0),
+  ];
+  private subs = new SubSink();
 
-  constructor() {}
+  constructor(private store: Store<GameState>) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.playerNumber === 1) {
+      this.subs.add(
+        this.store
+          .select(selectPlayer1)
+          .subscribe((player1) => (this.player = player1))
+      );
+    } else {
+      this.subs.add(
+        this.store
+          .select(selectPlayer2)
+          .subscribe((player2) => (this.player = player2))
+      );
+    }
+  }
+
+  calculatePrimaryScore() {
+    let primaryScore = this.pScores.reduce(
+      (val, fc) => val + (fc.value || 0),
+      0
+    );
+    primaryScore += this.apScores.reduce((val, fc) => val + (fc.value || 0), 0);
+    this.store.dispatch(
+      updatePrimaryScore({ primaryScore, player: this.playerNumber })
+    );
+  }
+
+  calculateSecondaryScore(idx: number) {
+    let curr: FormControl<number | null>[] = [];
+    if (idx === 0) curr = this.s1Scores;
+    else if (idx === 1) curr = this.s2Scores;
+    else curr = this.s3Scores;
+
+    let score = curr.reduce((val, fc) => val + (fc.value || 0), 0);
+    this.store.dispatch(
+      updateSecondaryScore({ score, idx, player: this.playerNumber })
+    );
+  }
 }

@@ -1,0 +1,25 @@
+input {
+  @apply w-32 text-center;
+}
+
+tr {
+  @apply border border-collapse border-solid;
+}
+
+td {
+  @apply border border-collapse border-solid;
+}
+
+.selector-cell {
+  width: 15%;
+}
+
+.title-cell {
+  width: 20%;
+  @apply text-center;
+}
+
+.score-cell {
+  width: 5%;
+  @apply text-center;
+}
