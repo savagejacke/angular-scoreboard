@@ -106,7 +106,7 @@ export const gameReducer = createReducer(
       ? state.player1.secondaries
       : state.player2.secondaries;
     const newSecondaries = secondaries.map((sec, i) => {
-      if (i === idx) return { ...sec, score };
+      if (i === idx) return { ...sec, score: Math.min(score, 15) };
       return sec;
     });
     if (p1) {
@@ -126,13 +126,13 @@ export const gameReducer = createReducer(
   on(updatePrimaryScore, (state, { primaryScore, player }) => {
     if (player === 1) {
       return {
-        player1: { ...state.player1, primaryScore },
+        player1: { ...state.player1, primaryScore: Math.min(primaryScore, 45) },
         player2: state.player2,
       };
     }
     return {
       player1: state.player1,
-      player2: { ...state.player2, primaryScore },
+      player2: { ...state.player2, primaryScore: Math.min(primaryScore, 45) },
     };
   })
 );

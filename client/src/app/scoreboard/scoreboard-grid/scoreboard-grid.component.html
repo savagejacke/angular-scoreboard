@@ -21,6 +21,8 @@
           type="number"
           [formControl]="pScores[0]"
           (change)="calculatePrimaryScore()"
+          max="12"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -28,6 +30,8 @@
           type="number"
           [formControl]="pScores[1]"
           (change)="calculatePrimaryScore()"
+          max="12"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -35,6 +39,8 @@
           type="number"
           [formControl]="pScores[2]"
           (change)="calculatePrimaryScore()"
+          max="12"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -42,6 +48,8 @@
           type="number"
           [formControl]="pScores[3]"
           (change)="calculatePrimaryScore()"
+          max="12"
+          min="0"
         />
       </td>
       <td class="score-cell">{{ player.primaryScore }}</td>
@@ -90,6 +98,8 @@
           type="number"
           [formControl]="s1Scores[0]"
           (change)="calculateSecondaryScore(0)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -97,6 +107,8 @@
           type="number"
           [formControl]="s1Scores[1]"
           (change)="calculateSecondaryScore(0)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -104,6 +116,8 @@
           type="number"
           [formControl]="s1Scores[2]"
           (change)="calculateSecondaryScore(0)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -111,6 +125,8 @@
           type="number"
           [formControl]="s1Scores[3]"
           (change)="calculateSecondaryScore(0)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -118,6 +134,8 @@
           type="number"
           [formControl]="s1Scores[4]"
           (change)="calculateSecondaryScore(0)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="score-cell">{{ player.secondaries[0].score }}</td>
@@ -131,6 +149,8 @@
           type="number"
           [formControl]="s2Scores[0]"
           (change)="calculateSecondaryScore(1)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -138,6 +158,8 @@
           type="number"
           [formControl]="s2Scores[1]"
           (change)="calculateSecondaryScore(1)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -145,6 +167,8 @@
           type="number"
           [formControl]="s2Scores[2]"
           (change)="calculateSecondaryScore(1)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -152,6 +176,8 @@
           type="number"
           [formControl]="s2Scores[3]"
           (change)="calculateSecondaryScore(1)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -159,6 +185,8 @@
           type="number"
           [formControl]="s2Scores[4]"
           (change)="calculateSecondaryScore(1)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="score-cell">{{ player.secondaries[1].score }}</td>
@@ -172,6 +200,8 @@
           type="number"
           [formControl]="s3Scores[0]"
           (change)="calculateSecondaryScore(2)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -179,6 +209,8 @@
           type="number"
           [formControl]="s3Scores[1]"
           (change)="calculateSecondaryScore(2)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -186,6 +218,8 @@
           type="number"
           [formControl]="s3Scores[2]"
           (change)="calculateSecondaryScore(2)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -193,6 +227,8 @@
           type="number"
           [formControl]="s3Scores[3]"
           (change)="calculateSecondaryScore(2)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="selector-cell">
@@ -200,6 +236,8 @@
           type="number"
           [formControl]="s3Scores[4]"
           (change)="calculateSecondaryScore(2)"
+          max="15"
+          min="0"
         />
       </td>
       <td class="score-cell">{{ player.secondaries[2].score }}</td>

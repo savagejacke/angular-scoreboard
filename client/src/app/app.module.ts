@@ -14,7 +14,6 @@ import { StoreModule } from '@ngrx/store';
 import { NinthFormComponent } from './game-start-ninth/ninth-form/ninth-form.component';
 import { GameStartButtonComponent } from './game-start-ninth/game-start-button/game-start-button.component';
 import { ScoreboardGridComponent } from './scoreboard/scoreboard-grid/scoreboard-grid.component';
-import { PrimaryRowComponent } from './scoreboard/primary-row/primary-row.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { PrimaryRowComponent } from './scoreboard/primary-row/primary-row.compon
     NinthFormComponent,
     GameStartButtonComponent,
     ScoreboardGridComponent,
-    PrimaryRowComponent,
   ],
   imports: [
     BrowserModule,
