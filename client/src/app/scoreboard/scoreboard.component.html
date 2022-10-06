@@ -1,1 +1,9 @@
-<p>scoreboard works!</p>
+<h1 class="my-5 text-center">Scoreboard</h1>
+
+<!-- Player 1 -->
+<h2 class="mb-3 text-center">{{ player1.name }} - {{ p1Score }}</h2>
+<app-scoreboard-grid [player]="1"></app-scoreboard-grid>
+
+<!-- Player 2 -->
+<h2 class="mb-3 text-center">{{ player2.name }} - {{ p2Score }}</h2>
+<app-scoreboard-grid [player]="2"></app-scoreboard-grid>

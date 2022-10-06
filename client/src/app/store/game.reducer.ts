@@ -4,7 +4,7 @@ import {
   addSecondary,
   replaceSecondary,
   updateSecondaryScore,
-  updateScore,
+  updatePrimaryScore,
   removeSecondary,
 } from './game.actions';
 import { createReducer, on } from '@ngrx/store';
@@ -123,16 +123,16 @@ export const gameReducer = createReducer(
       player2: { ...state.player2, secondaries: newSecondaries },
     };
   }),
-  on(updateScore, (state, { score, player }) => {
+  on(updatePrimaryScore, (state, { primaryScore, player }) => {
     if (player === 1) {
       return {
-        player1: { ...state.player1, score },
+        player1: { ...state.player1, primaryScore },
         player2: state.player2,
       };
     }
     return {
       player1: state.player1,
-      player2: { ...state.player2, score },
+      player2: { ...state.player2, primaryScore },
     };
   })
 );

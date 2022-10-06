@@ -31,7 +31,7 @@ export const updateSecondaryScore = createAction(
   props<{ score: number; idx: number; player: number }>()
 );
 
-export const updateScore = createAction(
+export const updatePrimaryScore = createAction(
   '[player.score] Update Score',
-  props<{ score: number; player: number }>()
+  props<{ primaryScore: number; player: number }>()
 );
