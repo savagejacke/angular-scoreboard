@@ -18,6 +18,7 @@
   </div>
 
   <!-- Normal game start form -->
+  <!-- Faction Selector -->
   <div *ngIf="named">
     <h1 class="mb-3">{{ player.name }}</h1>
     <h2 class="mb-1">Select army:</h2>
@@ -27,6 +28,28 @@
         {{ army }}
       </option>
     </select>
+
+    <!-- Subfaction selectors -->
+    <div *ngIf="showChapters()">
+      <h2 class="mt-2">Select Chapter</h2>
+      <select class="w-48 mb-2 dropdown" (change)="onChapterSelect($event)">
+        <option [value]="">--</option>
+        <option *ngFor="let chapter of chapters" [value]="chapter">
+          {{ chapter }}
+        </option>
+      </select>
+    </div>
+
+    <div *ngIf="showLegions()">
+      <h2 class="mt-2">Select Legion</h2>
+      <select class="w-48 mb-2 dropdown" (change)="onLegionSelect($event)">
+        <option [value]="">--</option>
+        <option *ngFor="let legion of legions" [value]="legion">
+          {{ legion }}
+        </option>
+      </select>
+    </div>
+
     <h2 class="mt-2 mb-1">Select secondaries:</h2>
 
     <!-- Purge the Enemy selector -->

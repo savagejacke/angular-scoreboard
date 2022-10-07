@@ -1,3 +1,4 @@
+import { CHAPTERS, LEGIONS } from './../../data/armies';
 import { SECONDARIES } from './../../data/Secondaries';
 import { Secondary, SecondaryType } from './../../models/secondary';
 import {
@@ -35,6 +36,8 @@ export class NinthFormComponent implements OnInit, OnDestroy {
   named = false;
   enteredName = new FormControl('');
   armies = ARMIES;
+  chapters = CHAPTERS;
+  legions = LEGIONS;
   pte: Secondary[];
   nmnr: Secondary[];
   wc: Secondary[];
@@ -82,8 +85,9 @@ export class NinthFormComponent implements OnInit, OnDestroy {
     );
   }
 
-  onArmyChange(e: any) {
-    let army = e.target.value;
+  onArmyChange(e: Event) {
+    let army = (e.target as HTMLSelectElement).value;
+    army = army === '--' ? '' : army;
     this.store.dispatch(updateArmy({ army, player: this.playerNumber }));
     this.updateSecondaryArrays();
   }
@@ -115,36 +119,78 @@ export class NinthFormComponent implements OnInit, OnDestroy {
     this.updateSecondaryDisable();
   }
 
+  showChapters() {
+    return this.player.army.startsWith('Space Marines');
+  }
+
+  onChapterSelect(e: Event) {
+    const chapter = (e.target as HTMLSelectElement).value;
+    if (chapter === '--') {
+      this.store.dispatch(
+        updateArmy({ army: 'Space Marines', player: this.playerNumber })
+      );
+    } else {
+      this.store.dispatch(
+        updateArmy({
+          army: `${this.player.army} - ${chapter}`,
+          player: this.playerNumber,
+        })
+      );
+    }
+    this.updateSecondaryArrays();
+  }
+
+  showLegions() {
+    return this.player.army.startsWith('Chaos Marines');
+  }
+
+  onLegionSelect(e: Event) {
+    const legion = (e.target as HTMLSelectElement).value;
+    if (legion === '--') {
+      this.store.dispatch(
+        updateArmy({ army: 'Chaos Marines', player: this.playerNumber })
+      );
+    } else {
+      this.store.dispatch(
+        updateArmy({
+          army: `${this.player.army} - ${legion}`,
+          player: this.playerNumber,
+        })
+      );
+    }
+    this.updateSecondaryArrays();
+  }
+
   private updateSecondaryArrays() {
     this.pte = SECONDARIES.filter(
       (sec) =>
         sec.type === 'Purge The Enemy' &&
         (sec.armyRequirement === 'None' ||
-          sec.armyRequirement === this.player.army)
+          this.player.army.includes(sec.armyRequirement))
     );
     this.nmnr = SECONDARIES.filter(
       (sec) =>
         sec.type === 'No Mercy, No Respite' &&
         (sec.armyRequirement === 'None' ||
-          sec.armyRequirement === this.player.army)
+          this.player.army.includes(sec.armyRequirement))
     );
     this.wc = SECONDARIES.filter(
       (sec) =>
         sec.type === 'Warpcraft' &&
         (sec.armyRequirement === 'None' ||
-          sec.armyRequirement === this.player.army)
+          this.player.army.includes(sec.armyRequirement))
     );
     this.bs = SECONDARIES.filter(
       (sec) =>
         sec.type === 'Battlefield Supremacy' &&
         (sec.armyRequirement === 'None' ||
-          sec.armyRequirement === this.player.army)
+          this.player.army.includes(sec.armyRequirement))
     );
     this.so = SECONDARIES.filter(
       (sec) =>
         sec.type === 'Shadow Operations' &&
         (sec.armyRequirement === 'None' ||
-          sec.armyRequirement === this.player.army)
+          this.player.army.includes(sec.armyRequirement))
     );
   }
 
