@@ -19,10 +19,32 @@
   @apply btn bg-green-500 hover:bg-green-600 text-white;
 }
 
+.selector-cell {
+  width: 15%;
+}
+
+.title-cell {
+  width: 20%;
+  @apply text-center;
+}
+
+.score-cell {
+  width: 5%;
+  @apply text-center;
+}
+
 h1 {
   @apply text-4xl font-bold;
 }
 
 h2 {
   @apply text-2xl font-bold;
+}
+
+tr {
+  @apply border border-collapse border-solid;
+}
+
+td {
+  @apply border border-collapse border-solid;
 }

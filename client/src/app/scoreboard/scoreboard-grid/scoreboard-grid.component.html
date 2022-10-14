@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <!-- <tr>
       <td class="title-cell">Primary</td>
       <td class="selector-cell">
         <input type="number" placeholder="-" disabled />
@@ -48,8 +48,6 @@
           type="number"
           [formControl]="pScores[3]"
           (change)="calculatePrimaryScore()"
-          max="12"
-          min="0"
         />
       </td>
       <td class="score-cell">{{ player.primaryScore }}</td>
@@ -88,159 +86,29 @@
         />
       </td>
       <td class="score-cell">-</td>
-    </tr>
-    <tr>
-      <td class="title-cell">
-        {{ player.secondaries[0].title }}
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s1Scores[0]"
-          (change)="calculateSecondaryScore(0)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s1Scores[1]"
-          (change)="calculateSecondaryScore(0)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s1Scores[2]"
-          (change)="calculateSecondaryScore(0)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s1Scores[3]"
-          (change)="calculateSecondaryScore(0)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s1Scores[4]"
-          (change)="calculateSecondaryScore(0)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="score-cell">{{ player.secondaries[0].score }}</td>
-    </tr>
-    <tr>
-      <td class="title-cell">
-        {{ player.secondaries[1].title }}
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s2Scores[0]"
-          (change)="calculateSecondaryScore(1)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s2Scores[1]"
-          (change)="calculateSecondaryScore(1)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s2Scores[2]"
-          (change)="calculateSecondaryScore(1)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s2Scores[3]"
-          (change)="calculateSecondaryScore(1)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s2Scores[4]"
-          (change)="calculateSecondaryScore(1)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="score-cell">{{ player.secondaries[1].score }}</td>
-    </tr>
-    <tr>
-      <td class="title-cell">
-        {{ player.secondaries[2].title }}
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s3Scores[0]"
-          (change)="calculateSecondaryScore(2)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s3Scores[1]"
-          (change)="calculateSecondaryScore(2)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s3Scores[2]"
-          (change)="calculateSecondaryScore(2)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s3Scores[3]"
-          (change)="calculateSecondaryScore(2)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="selector-cell">
-        <input
-          type="number"
-          [formControl]="s3Scores[4]"
-          (change)="calculateSecondaryScore(2)"
-          max="15"
-          min="0"
-        />
-      </td>
-      <td class="score-cell">{{ player.secondaries[2].score }}</td>
-    </tr>
+    </tr> -->
+    <app-primary-rows
+      class="table-row"
+      [playerNumber]="playerNumber"
+    ></app-primary-rows>
+    <!-- 
+    There should always be 3 selected secondaries, and looping causes the
+    inputs to break, so it should be ok to hardcode 3 secondaries
+    -->
+    <app-secondary-row
+      class="table-row"
+      [playerNumber]="playerNumber"
+      [idx]="0"
+    ></app-secondary-row>
+    <app-secondary-row
+      class="table-row"
+      [playerNumber]="playerNumber"
+      [idx]="1"
+    ></app-secondary-row>
+    <app-secondary-row
+      class="table-row"
+      [playerNumber]="playerNumber"
+      [idx]="2"
+    ></app-secondary-row>
   </tbody>
 </table>

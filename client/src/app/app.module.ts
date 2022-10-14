@@ -2,6 +2,7 @@ import { gameReducer } from './store/game.reducer';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,8 @@ import { StoreModule } from '@ngrx/store';
 import { NinthFormComponent } from './game-start-ninth/ninth-form/ninth-form.component';
 import { GameStartButtonComponent } from './game-start-ninth/game-start-button/game-start-button.component';
 import { ScoreboardGridComponent } from './scoreboard/scoreboard-grid/scoreboard-grid.component';
+import { SecondaryRowComponent } from './scoreboard/secondary-row/secondary-row.component';
+import { PrimaryRowsComponent } from './scoreboard/primary-rows/primary-rows.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +29,15 @@ import { ScoreboardGridComponent } from './scoreboard/scoreboard-grid/scoreboard
     NinthFormComponent,
     GameStartButtonComponent,
     ScoreboardGridComponent,
+    SecondaryRowComponent,
+    PrimaryRowsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({ game: gameReducer }),
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

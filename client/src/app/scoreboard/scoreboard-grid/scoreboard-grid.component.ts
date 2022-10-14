@@ -30,27 +30,6 @@ export class ScoreboardGridComponent implements OnInit {
     new FormControl(0),
     new FormControl(0),
   ];
-  s1Scores = [
-    new FormControl(0),
-    new FormControl(0),
-    new FormControl(0),
-    new FormControl(0),
-    new FormControl(0),
-  ];
-  s2Scores = [
-    new FormControl(0),
-    new FormControl(0),
-    new FormControl(0),
-    new FormControl(0),
-    new FormControl(0),
-  ];
-  s3Scores = [
-    new FormControl(0),
-    new FormControl(0),
-    new FormControl(0),
-    new FormControl(0),
-    new FormControl(0),
-  ];
   private subs = new SubSink();
 
   constructor(private store: Store<GameState>) {}
@@ -79,18 +58,6 @@ export class ScoreboardGridComponent implements OnInit {
     primaryScore += this.apScores.reduce((val, fc) => val + (fc.value || 0), 0);
     this.store.dispatch(
       updatePrimaryScore({ primaryScore, player: this.playerNumber })
-    );
-  }
-
-  calculateSecondaryScore(idx: number) {
-    let curr: FormControl<number | null>[] = [];
-    if (idx === 0) curr = this.s1Scores;
-    else if (idx === 1) curr = this.s2Scores;
-    else curr = this.s3Scores;
-
-    let score = curr.reduce((val, fc) => val + (fc.value || 0), 0);
-    this.store.dispatch(
-      updateSecondaryScore({ score, idx, player: this.playerNumber })
     );
   }
 }

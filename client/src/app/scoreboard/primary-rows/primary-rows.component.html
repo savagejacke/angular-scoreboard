@@ -1,0 +1,54 @@
+<tr>
+  <td class="title-cell">Primary</td>
+  <td class="selector-cell">
+    <input type="number" placeholder="-" disabled />
+  </td>
+  <td class="selector-cell">
+    <input type="number" [(ngModel)]="pScores[0]" (change)="calculateScore()" />
+  </td>
+  <td class="selector-cell">
+    <input type="number" [(ngModel)]="pScores[1]" (change)="calculateScore()" />
+  </td>
+  <td class="selector-cell">
+    <input type="number" [(ngModel)]="pScores[2]" (change)="calculateScore()" />
+  </td>
+  <td class="selector-cell">
+    <input type="number" [(ngModel)]="pScores[3]" (change)="calculateScore()" />
+  </td>
+  <td class="score-cell">{{ score }}</td>
+</tr>
+<tr>
+  <td class="title-cell">Additional Primary</td>
+  <td class="selector-cell">
+    <input type="number" placeholder="-" disabled />
+  </td>
+  <td class="selector-cell">
+    <input
+      type="number"
+      [(ngModel)]="apScores[0]"
+      (change)="calculateScore()"
+    />
+  </td>
+  <td class="selector-cell">
+    <input
+      type="number"
+      [(ngModel)]="apScores[1]"
+      (change)="calculateScore()"
+    />
+  </td>
+  <td class="selector-cell">
+    <input
+      type="number"
+      [(ngModel)]="apScores[2]"
+      (change)="calculateScore()"
+    />
+  </td>
+  <td class="selector-cell">
+    <input
+      type="number"
+      [(ngModel)]="apScores[3]"
+      (change)="calculateScore()"
+    />
+  </td>
+  <td class="score-cell">-</td>
+</tr>

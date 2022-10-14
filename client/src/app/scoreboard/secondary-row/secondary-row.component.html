@@ -1,0 +1,19 @@
+<tr>
+  <td class="title-cell">{{ secondary.title }}</td>
+  <td class="selector-cell">
+    <input type="number" [(ngModel)]="scores[0]" (change)="onScoreChange()" />
+  </td>
+  <td class="selector-cell">
+    <input type="number" [(ngModel)]="scores[1]" (change)="onScoreChange()" />
+  </td>
+  <td class="selector-cell">
+    <input type="number" [(ngModel)]="scores[2]" (change)="onScoreChange()" />
+  </td>
+  <td class="selector-cell">
+    <input type="number" [(ngModel)]="scores[3]" (change)="onScoreChange()" />
+  </td>
+  <td class="selector-cell">
+    <input type="number" [(ngModel)]="scores[4]" (change)="onScoreChange()" />
+  </td>
+  <td class="score-cell">{{ secondary.score }}</td>
+</tr>
