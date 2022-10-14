@@ -33,6 +33,10 @@
   @apply text-center;
 }
 
+.table-row {
+  display: contents;
+}
+
 h1 {
   @apply text-4xl font-bold;
 }

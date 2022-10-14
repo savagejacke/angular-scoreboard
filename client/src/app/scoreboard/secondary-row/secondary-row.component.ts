@@ -48,4 +48,11 @@ export class SecondaryRowComponent implements OnInit, OnDestroy {
       updateSecondaryScore({ score, idx: this.idx, player: this.playerNumber })
     );
   }
+
+  showActionInputs() {
+    return (
+      this.secondary.title === 'Retrieve Nephilim Data' ||
+      this.secondary.title === 'Warp Ritual'
+    );
+  }
 }

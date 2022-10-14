@@ -1,19 +1,28 @@
-<tr>
+<tr *ngIf="secondary">
   <td class="title-cell">{{ secondary.title }}</td>
-  <td class="selector-cell">
-    <input type="number" [(ngModel)]="scores[0]" (change)="onScoreChange()" />
-  </td>
-  <td class="selector-cell">
-    <input type="number" [(ngModel)]="scores[1]" (change)="onScoreChange()" />
-  </td>
-  <td class="selector-cell">
-    <input type="number" [(ngModel)]="scores[2]" (change)="onScoreChange()" />
-  </td>
-  <td class="selector-cell">
-    <input type="number" [(ngModel)]="scores[3]" (change)="onScoreChange()" />
-  </td>
-  <td class="selector-cell">
-    <input type="number" [(ngModel)]="scores[4]" (change)="onScoreChange()" />
-  </td>
+  <ng-container *ngIf="!showActionInputs()">
+    <td class="selector-cell">
+      <input type="number" [(ngModel)]="scores[0]" (change)="onScoreChange()" />
+    </td>
+    <td class="selector-cell">
+      <input type="number" [(ngModel)]="scores[1]" (change)="onScoreChange()" />
+    </td>
+    <td class="selector-cell">
+      <input type="number" [(ngModel)]="scores[2]" (change)="onScoreChange()" />
+    </td>
+    <td class="selector-cell">
+      <input type="number" [(ngModel)]="scores[3]" (change)="onScoreChange()" />
+    </td>
+    <td class="selector-cell">
+      <input type="number" [(ngModel)]="scores[4]" (change)="onScoreChange()" />
+    </td>
+  </ng-container>
+  <app-action-inputs
+    *ngIf="showActionInputs()"
+    class="table-row"
+    [playerNumber]="playerNumber"
+    [idx]="idx"
+    [title]="secondary.title"
+  ></app-action-inputs>
   <td class="score-cell">{{ secondary.score }}</td>
 </tr>

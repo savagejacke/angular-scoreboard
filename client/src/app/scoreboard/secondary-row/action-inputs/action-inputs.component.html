@@ -1,0 +1,55 @@
+<td class="text-center selector-cell">
+  <label for="turn1{{ playerNumber }}{{ title }}" class="mr-2">
+    Action completed
+  </label>
+  <input
+    type="checkbox"
+    [formControl]="checkboxes[0]"
+    (change)="calculateScore()"
+    id="turn1{{ playerNumber }}{{ title }}"
+  />
+</td>
+<td class="text-center selector-cell">
+  <label for="turn2{{ playerNumber }}{{ title }}" class="mr-2">
+    Action completed
+  </label>
+  <input
+    type="checkbox"
+    [formControl]="checkboxes[1]"
+    (change)="calculateScore()"
+    id="turn2{{ playerNumber }}{{ title }}"
+  />
+</td>
+<td class="text-center selector-cell">
+  <label for="turn3{{ playerNumber }}{{ title }}" class="mr-2">
+    Action completed
+  </label>
+  <input
+    type="checkbox"
+    [formControl]="checkboxes[2]"
+    (change)="calculateScore()"
+    id="turn3{{ playerNumber }}{{ title }}"
+  />
+</td>
+<td class="text-center selector-cell">
+  <label for="turn4{{ playerNumber }}{{ title }}" class="mr-2">
+    Action completed
+  </label>
+  <input
+    type="checkbox"
+    [formControl]="checkboxes[3]"
+    (change)="calculateScore()"
+    id="turn4{{ playerNumber }}{{ title }}"
+  />
+</td>
+<td class="text-center selector-cell">
+  <label for="turn5{{ playerNumber }}{{ title }}" class="mr-2">
+    Action completed
+  </label>
+  <input
+    type="checkbox"
+    [formControl]="checkboxes[4]"
+    (change)="calculateScore()"
+    id="turn5{{ playerNumber }}{{ title }}"
+  />
+</td>

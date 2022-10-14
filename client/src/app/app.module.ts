@@ -17,6 +17,7 @@ import { GameStartButtonComponent } from './game-start-ninth/game-start-button/g
 import { ScoreboardGridComponent } from './scoreboard/scoreboard-grid/scoreboard-grid.component';
 import { SecondaryRowComponent } from './scoreboard/secondary-row/secondary-row.component';
 import { PrimaryRowsComponent } from './scoreboard/primary-rows/primary-rows.component';
+import { ActionInputsComponent } from './scoreboard/secondary-row/action-inputs/action-inputs.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PrimaryRowsComponent } from './scoreboard/primary-rows/primary-rows.com
     ScoreboardGridComponent,
     SecondaryRowComponent,
     PrimaryRowsComponent,
+    ActionInputsComponent,
   ],
   imports: [
     BrowserModule,
