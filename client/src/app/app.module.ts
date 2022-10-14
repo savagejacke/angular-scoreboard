@@ -18,6 +18,7 @@ import { ScoreboardGridComponent } from './scoreboard/scoreboard-grid/scoreboard
 import { SecondaryRowComponent } from './scoreboard/secondary-row/secondary-row.component';
 import { PrimaryRowsComponent } from './scoreboard/primary-rows/primary-rows.component';
 import { ActionInputsComponent } from './scoreboard/secondary-row/action-inputs/action-inputs.component';
+import { NoPrisonersRowComponent } from './scoreboard/secondary-row/no-prisoners-row/no-prisoners-row.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ActionInputsComponent } from './scoreboard/secondary-row/action-inputs/
     SecondaryRowComponent,
     PrimaryRowsComponent,
     ActionInputsComponent,
+    NoPrisonersRowComponent,
   ],
   imports: [
     BrowserModule,

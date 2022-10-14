@@ -55,4 +55,8 @@ export class SecondaryRowComponent implements OnInit, OnDestroy {
       this.secondary.title === 'Warp Ritual'
     );
   }
+
+  showNPInputs() {
+    return this.secondary.title === 'No Prisoners';
+  }
 }

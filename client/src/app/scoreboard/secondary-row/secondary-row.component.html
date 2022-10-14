@@ -1,6 +1,6 @@
 <tr *ngIf="secondary">
   <td class="title-cell">{{ secondary.title }}</td>
-  <ng-container *ngIf="!showActionInputs()">
+  <ng-container *ngIf="!showActionInputs() && !showNPInputs()">
     <td class="selector-cell">
       <input type="number" [(ngModel)]="scores[0]" (change)="onScoreChange()" />
     </td>
@@ -24,5 +24,11 @@
     [idx]="idx"
     [title]="secondary.title"
   ></app-action-inputs>
+  <app-no-prisoners-row
+    *ngIf="showNPInputs()"
+    class="table-row"
+    [playerNumber]="playerNumber"
+    [idx]="idx"
+  ></app-no-prisoners-row>
   <td class="score-cell">{{ secondary.score }}</td>
 </tr>
