@@ -19,14 +19,14 @@
   </ng-container>
   <app-action-inputs
     *ngIf="showActionInputs()"
-    class="table-row"
+    class="contents"
     [playerNumber]="playerNumber"
     [idx]="idx"
     [title]="secondary.title"
   ></app-action-inputs>
   <app-no-prisoners-row
     *ngIf="showNPInputs()"
-    class="table-row"
+    class="contents"
     [playerNumber]="playerNumber"
     [idx]="idx"
   ></app-no-prisoners-row>

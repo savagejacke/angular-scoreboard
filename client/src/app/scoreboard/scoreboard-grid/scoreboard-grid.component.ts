@@ -18,18 +18,6 @@ import { Player } from 'src/app/models/player';
 export class ScoreboardGridComponent implements OnInit {
   @Input() playerNumber: number;
   player: Player;
-  pScores = [
-    new FormControl(0),
-    new FormControl(0),
-    new FormControl(0),
-    new FormControl(0),
-  ];
-  apScores = [
-    new FormControl(0),
-    new FormControl(0),
-    new FormControl(0),
-    new FormControl(0),
-  ];
   private subs = new SubSink();
 
   constructor(private store: Store<GameState>) {}
@@ -48,16 +36,5 @@ export class ScoreboardGridComponent implements OnInit {
           .subscribe((player2) => (this.player = player2))
       );
     }
-  }
-
-  calculatePrimaryScore() {
-    let primaryScore = this.pScores.reduce(
-      (val, fc) => val + (fc.value || 0),
-      0
-    );
-    primaryScore += this.apScores.reduce((val, fc) => val + (fc.value || 0), 0);
-    this.store.dispatch(
-      updatePrimaryScore({ primaryScore, player: this.playerNumber })
-    );
   }
 }
