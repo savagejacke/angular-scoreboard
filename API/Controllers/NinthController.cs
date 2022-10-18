@@ -20,7 +20,8 @@ public class NinthController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<NinthResult>>> GetResults()
     {
-        return await context.NinthResults.ToListAsync();
+        var results = await context.NinthResults.ToListAsync();
+        return results;
     }
 
     [HttpGet("{id}")]

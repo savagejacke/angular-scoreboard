@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "RDZO3NFm7AseHnjAtXssMcn4M9eVEzglxtKG7UUjFpzpTHLo2zdhXYcu7juNtTYOwn64HEyzghjKpN5LSZxRmQ==",
+  "dgSpecHash": "I1igTeKBW7w5vx1fZhOU/LU+rO0HOP0gq+VJlniT+Sl0231pNnePLBQe5gX9NOBQkPGwfrFNy4p8LWfFpHmOKw==",
   "success": true,
   "projectFilePath": "C:\\Users\\MC server PC admin\\OneDrive\\Documents\\SideProjects\\angular-scoreboard\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MC server PC admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\MC server PC admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.certificate\\6.0.4\\microsoft.aspnetcore.authentication.certificate.6.0.4.nupkg.sha512",
     "C:\\Users\\MC server PC admin\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.4\\microsoft.data.sqlite.core.6.0.4.nupkg.sha512",
     "C:\\Users\\MC server PC admin\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.4\\microsoft.entityframeworkcore.6.0.4.nupkg.sha512",
     "C:\\Users\\MC server PC admin\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.4\\microsoft.entityframeworkcore.abstractions.6.0.4.nupkg.sha512",

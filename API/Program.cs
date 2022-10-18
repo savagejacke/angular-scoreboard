@@ -1,11 +1,26 @@
 using API.Data;
+using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var allowClientApp = "_AllowAngularApp";
+
 // Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddDbContext<DataContext>();
+builder.Services.AddDbContext<DataContext>()
+    .AddCors(options =>
+    {
+        options.AddPolicy(allowClientApp, policy =>
+        {
+            policy
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .WithOrigins("https://localhost:4200");
+        });
+    });
+builder.Services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme)
+    .AddCertificate();
 
 // // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 // builder.Services.AddEndpointsApiExplorer();
@@ -20,7 +35,9 @@ var app = builder.Build();
 //     app.UseSwaggerUI();
 // }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
+
+app.UseCors(allowClientApp);
 
 app.UseAuthorization();
 

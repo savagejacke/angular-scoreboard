@@ -1,1 +1,26 @@
-<p>results works!</p>
+<h1>Game Results</h1>
+<button class="btn btn-blue" (click)="onClick()">Click me</button>
+<!-- <table>
+    <thead>
+        <th>Date</th>
+        <th>Player 1</th>
+        <th>Player 2</th>
+        <th>Player 1 Army</th>
+        <th>Player 2 Army</th>
+        <th>Player 1 Score</th>
+        <th>Player 2 Score</th>
+        <th>Winner</th>
+        <th>Description</th>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table> -->
+<ng-container *ngIf="results.length">
+  <h2>
+    Player 1: {{ results[0].player1Name }} - {{ results[0].player1Score }}
+  </h2>
+  <h2>
+    Player 1: {{ results[0].player2Name }} - {{ results[0].player2Score }}
+  </h2>
+</ng-container>

@@ -52,3 +52,4 @@ C:\Users\MC server PC admin\OneDrive\Documents\SideProjects\angular-scoreboard\A
 C:\Users\MC server PC admin\OneDrive\Documents\SideProjects\angular-scoreboard\API\obj\Debug\net6.0\API.pdb
 C:\Users\MC server PC admin\OneDrive\Documents\SideProjects\angular-scoreboard\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 C:\Users\MC server PC admin\OneDrive\Documents\SideProjects\angular-scoreboard\API\obj\Debug\net6.0\ref\API.dll
+C:\Users\MC server PC admin\OneDrive\Documents\SideProjects\angular-scoreboard\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Certificate.dll
