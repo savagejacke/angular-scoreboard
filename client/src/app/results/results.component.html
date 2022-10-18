@@ -1,26 +1,24 @@
-<h1>Game Results</h1>
-<button class="btn btn-blue" (click)="onClick()">Click me</button>
-<!-- <table>
+<div class="text-center">
+  <h1>Game Results</h1>
+  <table class="mx-auto my-3 border-2 border-collapse table-fixed">
     <thead>
-        <th>Date</th>
-        <th>Player 1</th>
-        <th>Player 2</th>
-        <th>Player 1 Army</th>
-        <th>Player 2 Army</th>
-        <th>Player 1 Score</th>
-        <th>Player 2 Score</th>
-        <th>Winner</th>
-        <th>Description</th>
+      <th class="px-3">Date</th>
+      <th class="px-3">Player 1</th>
+      <th class="px-3">Player 2</th>
+      <th class="px-3">Player 1 Army</th>
+      <th class="px-3">Player 2 Army</th>
+      <th class="px-3">Player 1 Score</th>
+      <th class="px-3">Player 2 Score</th>
+      <th class="px-3">Winner</th>
+      <th class="px-3">Description</th>
     </thead>
     <tbody>
-
+      <app-game-result-row
+        *ngFor="let result of results"
+        class="contents"
+        [result]="result"
+      ></app-game-result-row>
     </tbody>
-</table> -->
-<ng-container *ngIf="results.length">
-  <h2>
-    Player 1: {{ results[0].player1Name }} - {{ results[0].player1Score }}
-  </h2>
-  <h2>
-    Player 1: {{ results[0].player2Name }} - {{ results[0].player2Score }}
-  </h2>
-</ng-container>
+  </table>
+  <button class="btn btn-blue">Refresh</button>
+</div>

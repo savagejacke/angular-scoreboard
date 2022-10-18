@@ -12,9 +12,11 @@ export class ResultsComponent implements OnInit {
 
   constructor(private resultsService: ResultsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.refreshResults();
+  }
 
-  onClick() {
-    this.resultsService.getResult(1).subscribe((r) => (this.results[0] = r));
+  refreshResults() {
+    this.resultsService.getResults().subscribe((r) => (this.results = r));
   }
 }

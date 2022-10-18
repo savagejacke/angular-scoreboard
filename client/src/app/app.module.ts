@@ -20,6 +20,7 @@ import { SecondaryRowComponent } from './scoreboard/secondary-row/secondary-row.
 import { PrimaryRowsComponent } from './scoreboard/primary-rows/primary-rows.component';
 import { ActionInputsComponent } from './scoreboard/secondary-row/action-inputs/action-inputs.component';
 import { NoPrisonersRowComponent } from './scoreboard/secondary-row/no-prisoners-row/no-prisoners-row.component';
+import { GameResultRowComponent } from './results/game-result-row/game-result-row.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { NoPrisonersRowComponent } from './scoreboard/secondary-row/no-prisoners
     PrimaryRowsComponent,
     ActionInputsComponent,
     NoPrisonersRowComponent,
+    GameResultRowComponent,
   ],
   imports: [
     BrowserModule,
