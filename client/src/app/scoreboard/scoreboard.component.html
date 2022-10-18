@@ -7,3 +7,29 @@
 <!-- Player 2 -->
 <h2 class="mb-3 text-center">{{ player2.name }} - {{ p2Score }}</h2>
 <app-scoreboard-grid [playerNumber]="2"></app-scoreboard-grid>
+
+<div class="text-center mt-3" *ngIf="p1Score || p2Score">
+  <div class="mb-2">
+    <label for="NumberOfRounds" class="mr-2">Number of rounds played:</label>
+    <input
+      type="number"
+      class="text-center border-black border rounded"
+      id="NumberOfRounds"
+      [(ngModel)]="numberOfRounds"
+    />
+  </div>
+  <label for="GameDescription"
+    >Provide a description for the game if you wish</label
+  ><br />
+  <textarea
+    id="GameDescription"
+    cols="50"
+    rows="4"
+    class="border-black border rounded"
+    [(ngModel)]="description"
+  ></textarea
+  ><br />
+  <button class="btn btn-green mt-2" (click)="onLogGameClick()">
+    Log Game
+  </button>
+</div>

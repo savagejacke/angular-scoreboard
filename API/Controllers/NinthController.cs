@@ -51,4 +51,14 @@ public class NinthController : ControllerBase
         if (await context.SaveChangesAsync() > 0) return result;
         return BadRequest();
     }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> DeleteResult(int id)
+    {
+        var results = await context.NinthResults.ToListAsync();
+        var toRemove = results.Find(r => r.Id == id);
+        context.Remove(toRemove);
+        if (await context.SaveChangesAsync() > 0) return Ok();
+        return BadRequest();
+    }
 }
