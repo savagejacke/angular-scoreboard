@@ -685,4 +685,28 @@ export const SECONDARIES: Secondary[] = [
     armyRequirement: 'World Eaters',
     score: 0,
   },
+  {
+    title: 'Grudge Match',
+    type: 'Purge The Enemy',
+    armyRequirement: 'Leagues of Votann',
+    score: 0,
+  },
+  {
+    title: 'The Ancestors are Watching',
+    type: 'No Mercy, No Respite',
+    armyRequirement: 'Leagues of Votann',
+    score: 0,
+  },
+  {
+    title: 'Lay Claim',
+    type: 'Battlefield Supremacy',
+    armyRequirement: 'Leagues of Votann',
+    score: 0,
+  },
+  {
+    title: 'Prospects of Wealth',
+    type: 'Shadow Operations',
+    armyRequirement: 'Leagues of Votann',
+    score: 0,
+  },
 ];
