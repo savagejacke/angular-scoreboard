@@ -1,3 +1,4 @@
 # The Warhammer Scoreboard
 
-This is the same app as the react-scoreboard, but I am rebuilding it using Angular and .NET. This is the version that I will continue to update.
+This app can be used to keep score of a Warhammer 40k game then log the results.
+It is built using Angular and .NET
